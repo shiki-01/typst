@@ -3,10 +3,11 @@
   let acsent
   let icon
   let content
-  if type == "info" {color = "#ccf1ff"; acsent = "#54a2df"; icon = "../image/info.svg"}
-  if type == "important" {color = "#ffdbdb"; acsent = "#ff4d4d"; icon = "../image/exra.svg"}
-  if type == "sucsess" {color = "#dff4cf"; acsent = "#67cb1b"; icon = "../image/check.svg"}
-  if type == "comment" {color = "#fbf5e0"; acsent = "#ffce1f"; icon = "../image/comment.svg"}
+  let text_color
+  if type == "info" {color = "#ccf1ff"; text_color = "#31708f"; acsent = "#54a2df"; icon = "../image/info.svg"}
+  if type == "important" {color = "#ffdbdb"; text_color = "#a94442"; acsent = "#ff4d4d"; icon = "../image/exra.svg"}
+  if type == "sucsess" {color = "#dff4cf"; text_color = "#3c763d"; acsent = "#67cb1b"; icon = "../image/check.svg"}
+  if type == "comment" {color = "#fbf5e0"; text_color = "#8a6d3b"; acsent = "#ffce1f"; icon = "../image/comment.svg"}
   if title == "" {
     content = [
       #grid(
@@ -22,7 +23,7 @@
             top: 6pt,
             bottom: 5pt,
             right: 2pt,
-            [#body]
+            text(fill: rgb(text_color))[#body]
           )
         ]
       )
@@ -37,15 +38,14 @@
             image(icon, width: 20pt),
           )
         ],
-        [#align(horizon)[*#title*]
-      ]
+        text(fill: rgb(text_color))[#align(horizon)[*#title*]]
       )
       #pad(
         top: 10pt,
         bottom: 10pt,
         left: 28pt,
         right: 28pt,
-        [#body]
+        text(fill: rgb(text_color))[#body]
       )
     ]
   }
