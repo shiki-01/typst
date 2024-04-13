@@ -1,4 +1,4 @@
-#import "../../lib/conf.typ": conf, come, desc
+#import "../../../lib/conf.typ": conf, come, desc
 #import "@preview/codelst:2.0.1": sourcecode
 #show: doc => conf(
   title: [化学基礎 1学期中間],
@@ -14,7 +14,7 @@
   [
     *元素名⇄元素記号*
 
-#table(  
+#table( 
   columns: 3,
   table.header(
     [元素名],[元素記号],[注意]
