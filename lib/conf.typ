@@ -27,7 +27,6 @@
   ]
 
   set text(font: "M PLUS 1")
-  set text(font: "Noto Sans CJK JP")
 
   show raw.where(block: false): box.with(
     fill: luma(240),
