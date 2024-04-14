@@ -1,10 +1,13 @@
 #import "component/comment.typ": comment
 #import "component/title.typ": head
 #import "component/description.typ": description
+#import "@preview/whalogen:0.1.0": ce as whalogen
 
 #let come(title, type, body) =[ #comment(title, type, body) ]
 
 #let desc(name, body) = [ #description(name, body) ]
+
+#let ce(body) = [ $#whalogen(body)$ ]
 
 #let conf(
   title: none,
