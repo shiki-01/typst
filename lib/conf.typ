@@ -9,6 +9,13 @@
 
 #let ce(body) = [ $#whalogen(body)$ ]
 
+#let light(body) = [
+  #highlight(
+    top-edge: "x-height",
+    [*#body*]
+  )
+]
+
 #let conf(
   title: none,
   date: none,
