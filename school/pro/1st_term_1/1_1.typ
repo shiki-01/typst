@@ -159,3 +159,74 @@ print("あなたのBMI1値は、", bmi, "です。")
 #        体重何kgですか?  64
 #        あなたのBMI値は、21.887076365377382です。
 ```]
+
+== カメでお絵描きしてみよう
+
+#sourcecode[```python
+from turtle import * #turtleモジュールをインポート/読み込む
+shape("turtle")      #カメの形にする
+forward(100)         #100px前進
+done()               #終了
+```]
+
+#image(
+  width: 200pt,
+  "./img/turtle1.png"
+)
+
+#sourcecode[```python
+from turtle import *    #turtleモジュールをインポート/読み込む
+shape("turtle")         #カメの形にする
+for i in range(4):      #4回繰り返す
+    forward(100)        #100px前進
+    left(90)            #90度左に回転
+done()
+```]
+
+#image(
+  width: 200pt,
+  "./img/turtle2.png"
+)
+
+#sourcecode[```python
+from turtle import *                       #turtleモジュールをインポート/読み込む
+shape("turtle")                                    #カメの形にする
+col = ["orange", "limegreen", "gold", "plum", "tomato"]   #色のリスト
+for i in range(5):                                     #5回繰り返す
+    color(col[i])                                   #色を変える
+    forward(200)                               #200px前進
+    left(144)                              #144度左に回転
+done()                               #終了
+```]
+
+#image(
+  width: 200pt,
+  "./img/turtle3.png"
+)
+
+#come("iについて","info")[
+  `range(5) -> i`は、0から4までの5つの数字を生成する。
+]
+
+#sourcecode[```python
+from turtle import *
+shape("turtle")
+col = ["orange", "limegreen", "gold", "plum", "tomato"]
+for i in range(5):
+    color(col[i])
+    circle(100)
+    left(72)
+done()
+```]
+
+#image(
+  width: 200pt,
+  "./img/turtle4.png"
+)
+
+#pagebreak()
+
+= プログラムって何ができるの？
+.\
+
+- プログラムは、どれだけ難しそうでも「順次」「分岐」「反復」の三つの組み合わせでできている。
