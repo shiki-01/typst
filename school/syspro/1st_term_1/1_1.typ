@@ -1,6 +1,7 @@
 #import "../../../lib/conf.typ": conf, come, desc, ce, light
 #import "@preview/codelst:2.0.1": 
 #import "@preview/pintorita:0.1.1"
+#import "@preview/fletcher:0.4.3" as fletcher: diagram, node, edge
 #show raw.where(lang: "pintora"): it => pintorita.render(it.text)
 #show: doc => conf(
   title: [情報システム 1学期中間],
@@ -127,3 +128,69 @@ mindmap
   プロジェクトにかかわる企業の経営者や部門の責任者、現場の利用者を指す。\
   プロジェクト内の「決定権を持つ人」の意味で用いられることもある。
 ]
+
+= 情報システムの設計
+== 情報システムの要求分析と定義
+
+=== 要求分析と定義の意義
+
+#desc("要件定義")[
+  利用者側が実現したいことを明確にしてから「要件定義」として開発者側が作ろうとするものを定義する。
+]
+
+#diagram(
+  node-stroke: .1pt,
+  edge-stroke: .5pt,
+  node((0,0), [要求分析と定義], corner-radius: 2pt, extrude: (0, 3)),
+  edge("->"),
+  node((0,-1), [要件定義], corner-radius: 2pt, extrude: (0, 3)),
+  edge("->"),
+  node((0,-2), [基本（外部）設計], corner-radius: 2pt, extrude: (0, 3)),
+  edge("->"),
+  node((0,-3), [詳細（内部）設計], corner-radius: 2pt, extrude: (0, 3)),
+  edge("->"),
+  node((0,-4), [製造（プログラム）], corner-radius: 2pt, extrude: (0, 3)),
+  edge("->"),
+  node((0,-5), [テスト], corner-radius: 2pt, extrude: (0, 3)),
+  edge("->"),
+  node((0,-6), [本番移行（リリース）], corner-radius: 2pt, extrude: (0, 3)),
+  edge("->"),
+  node((0,-7), [運用・保守], corner-radius: 2pt, extrude: (0, 3)),
+)
+
+=== 要求定義の活動
+
+*意見交換・情報収集方法*
+- 資料調査
+- 観察調査
+- ヒアリング
+
+*共通理解を進める方法*
+- 機能要求と非機能要求の確認
+- ユースケース図の作成
+- 機能改装図の作成
+
+*要求定義に含まれるもの*
+- 背景
+- 課題
+- 目的
+- 概要
+- 機能
+
+*ユースケース図*
+
+#table(
+  columns: 2,
+    [図記号],[説明],
+    [ユースケース],[ユーザーがシステムに対して行う操作、機能],
+    [アクター],[情報システムを利用する対象、対象の名称],
+    [対象],[ユースケースを実現する対象],
+)
+
+対象内に記述されるユースケースは機能要求を表し、対象外に記述されるユースケースは非機能要求を表す。
+
+P.18 問２
+
+#image(
+  "./img/1_1_3.drawio.svg"
+)
