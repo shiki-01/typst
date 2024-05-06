@@ -38,7 +38,7 @@
   ]
 
   set text(
-    font: "M PLUS 1p",
+    font: "M PLUS 1",
   )
 
   show raw.where(block: false): box.with(

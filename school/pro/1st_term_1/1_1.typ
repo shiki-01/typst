@@ -59,7 +59,9 @@
 *特徴１：シンプルなプログラム*\
 プログラムの「処理のまとまり」を「インデント（字下げ）」を使って書くのが特徴
 
-#sourcecode[```python
+#sourcecode(
+)[
+  ```python
 print(xxx, yyy)
 if(a > b):
   print(xxx, yyy) #インデント
