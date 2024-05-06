@@ -12,6 +12,7 @@
 #let light(body) = [
   #highlight(
     top-edge: "x-height",
+    fill: rgb("#ffff00"),
     [*#body*]
   )
 ]
@@ -37,7 +38,7 @@
   ]
 
   set text(
-    font: "M PLUS 1",
+    font: "M PLUS 1p",
   )
 
   show raw.where(block: false): box.with(
