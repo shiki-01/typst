@@ -358,3 +358,37 @@ else:
   [`<=`],[以下],
 )
 
+=== そうでないとき
+
+#sourcecode[```python
+a = 10
+if a > 5:
+    print("aは5より大きい")
+elif a == 5:
+    print("aは5")
+else:
+    print("aは5以下")
+```]
+
+== 繰り返し処理をする
+
+*基本構造*
+#sourcecode[```python
+for i in range(5):
+    print(i)
+```]
+
+#sourcecode[```python
+a = [1, 2, 3, 4, 5]
+for i in a:
+    print(i)
+```]
+
+
+=== リストのすべての要素について繰り返す
+
+#sourcecode[```python
+a = [1, 2, 3, 4, 5]
+for i in a:
+    print(i)
+```]
