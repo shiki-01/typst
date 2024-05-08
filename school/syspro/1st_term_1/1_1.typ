@@ -194,3 +194,4 @@ P.18 問２
 #image(
   "./img/1_1_3.drawio.svg"
 )
+
