@@ -244,3 +244,127 @@ mindmap
 ++++ 投稿の削除
 ```
 
+== 情報システムのモデル化
+
+=== システムのモデル化
+
+#desc("モデル化")[
+  データの処理の流れを図式化すること
+]
+
+例）
+- データフロー図（Data Flow Diagram: DFD）
+- 実態関連図（Entity Relationship Diagram: ERD）
+- 状態遷移図
+
+=== データフロー図（DFD）
+
+#desc("DFD")[
+  データの流れを図式化したもの。主に#light[データフロー]、#light[データストア]、#light[外部実態]、#light[プロセス]の４つの図記号を使って表現される。
+]
+
+#table(
+  columns: 3,
+    [名前],[図記号],[説明],
+    [データフロー],
+    [
+      #diagram(
+        node-stroke: .1pt,
+        edge-stroke: .5pt,
+        edge("-|>"),
+        )
+    ],
+    [データの流れを表す],
+    [データストア],
+    [
+      #diagram(
+        node-stroke: .1pt,
+        edge-stroke: .5pt,
+        node((0,0), [データストア], corner-radius: 2pt, extrude: (0, 3))
+        )
+    ],
+    [データの保管場所を表す],
+    [外部実体],
+    [
+      #diagram(
+        node-stroke: .1pt,
+        edge-stroke: .5pt,
+        edge("-|>"),
+        node((0,0), [外部実体],stroke:auto, corner-radius: 2pt, extrude: (0, 3))
+        )
+    ],
+    [システム外部のデータの流れを表す],
+    [プロセス],
+    [
+      #diagram(
+        node-stroke: .1pt,
+        edge-stroke: .5pt,
+        node((0,0), [プロセス], corner-radius: 2pt, extrude: (0, 3),radius: 2em)
+        )
+    ],
+    [データの加工を表す],
+)
+
+#pagebreak()
+
+例）図書管理システムにおける「図書の予約」のデータフロー図
+
+#table(
+  columns: 2,
+  table.cell(
+    align: center,
+    colspan: 2
+  )[図書の予約],
+  [外部実体（発生源、出力先）],[利用者],
+  [データフロー],[予約申請情報、返却情報、予約情報、在庫情報、貸出案内、利用者情報],
+  [データストア],[利用者台帳、貸出台帳、蔵書台帳],
+  [プロセス],[予約],
+)
+
+#image(
+  "./img/1_1_5.drawio.svg"
+)
+
+例）図書管理システムにおける「新規図書の購入」のデータフロー図
+
+#table(
+  columns: 2,
+  table.cell(
+    align: center,
+    colspan: 2
+  )[新規図書の購入],
+  [外部実体（発生源、出力先）],[図書館職員],
+  [データフロー],[購入リスト、購入候補図書],
+  [データストア],[購入図書候補台帳],
+  [プロセス],[図書購入],
+)
+
+#pagebreak()
+
+#table(
+  columns: 2,
+  table.cell(
+    align: center,
+    colspan: 2
+  )[図書の検索],
+  [外部実体（発生源、出力先）],[利用者],
+  [データフロー],[書籍名・著者名、在庫情報、登録なし（在庫登録なし）],
+  [データストア],[蔵書台帳、購入図書候補台帳],
+  [プロセス],[検索],
+)
+
+#table(
+  columns: 2,
+  table.cell(
+    align: center,
+    colspan: 2
+  )[図書の予約],
+  [外部実体（発生源、出力先）],[利用者],
+  [データフロー],[予約申請情報、返却情報、予約情報、在庫情報、貸出情報、登録なし（在庫登録なし）、利用者情報],
+  [データストア],[利用者台帳、貸出台帳、蔵書台帳],
+  [プロセス],[予約],
+)
+
+#image(
+  "./img/1_1_6.drawio.svg"
+)
