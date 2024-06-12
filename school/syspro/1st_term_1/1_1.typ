@@ -4,7 +4,7 @@
 #import "@preview/fletcher:0.4.3" as fletcher: diagram, node, edge
 #show raw.where(lang: "pintora"): it => pintorita.render(it.text)
 #show: doc => conf(
-  title: [情報システム 1学期中間],
+  title: [情報システム 1学期],
   date: [2024年4月11日],
   doc,
 )
@@ -192,6 +192,8 @@ P.18 問２
 #image(
   "./img/1_1_3.drawio.svg"
 )
+
+#pagebreak()
 
 *機能階層図*
 
