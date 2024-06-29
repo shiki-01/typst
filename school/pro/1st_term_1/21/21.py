@@ -5,10 +5,9 @@ import numpy as np
 sys.setrecursionlimit(10 ** 6)
 
 class MazeGenerator:
-    def __init__(self, width, height, difficulty):
+    def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.difficulty = difficulty
         self.maze = np.ones((width, height), dtype=np.int8)
 
     def generate_maze(self, x=0, y=0):
@@ -19,17 +18,6 @@ class MazeGenerator:
             if 0 <= nx < self.width and 0 <= ny < self.height and self.maze[nx, ny]:
                 self.maze[nx - dx // 2, ny - dy // 2] = 0
                 self.maze[nx, ny] = 0
-                self.generate_maze(nx, ny)
-
-        self.adjust_maze_complexity()
-
-    def adjust_maze_complexity(self):
-        if self.difficulty == 0:
-            for _ in range(int(self.width * self.height * 0.07)):
-                x, y = np.random.randint(10, self.width - 1), np.random.randint(10, self.height - 1)
-        elif self.difficulty == 2:
-            for _ in range(int(self.width * self.height * 0.1)):
-                x, y = np.random.randint(1, self.width - 1), np.random.randint(1, self.height - 1)
 
 
 class GoalScreen:
@@ -39,6 +27,7 @@ class GoalScreen:
 
     def update(self):
         if pyxel.btnp(pyxel.KEY_SPACE):
+            dificulty = 0
             Start()
 
     def draw(self):
@@ -50,11 +39,11 @@ class GoalScreen:
 
 
 class App:
-    def __init__(self, difficulty):
-        self.difficulty = difficulty + 1
+    def __init__(self,):
+        difficulty = difficulty + 1
         if difficulty == 2:
-            self.difficulty += 1
-        self.pixel_size = int(5 / self.difficulty)
+            difficulty += 1
+        self.pixel_size = int(5 / difficulty)
         self.player_x, self.player_y = 0, 0
         if difficulty == 0:
             width, height = 30, 20
@@ -112,27 +101,28 @@ class App:
 class Start:
     def __init__(self):
         pyxel.load("main.pyxres")
-        self.difficulty = 0
+        difficulty = 0
         pyxel.run(self.update_difficulty, self.draw_difficulty)
 
     def update_difficulty(self):
-        if pyxel.btnp(pyxel.KEY_UP) and self.difficulty > 0:
-            self.difficulty -= 1
-        if pyxel.btnp(pyxel.KEY_DOWN) and self.difficulty < 2:
-            self.difficulty += 1
+        if pyxel.btnp(pyxel.KEY_UP) and difficulty > 0:
+            difficulty -= 1
+        if pyxel.btnp(pyxel.KEY_DOWN) and difficulty < 2:
+            difficulty += 1
         if pyxel.btnp(pyxel.KEY_SPACE):
-            App(self.difficulty)
+            App(difficulty)
 
     def draw_difficulty(self):
         pyxel.cls(0)
         pyxel.blt(10, 15, 0, 0, 0, 150, 16)
         pyxel.text(35, 40, "Select Difficulty:", 7)
         difficulties = ["Easy", "Normal", "Hard"]
-        for i, difficulty in enumerate(difficulties):
-            color = pyxel.COLOR_LIGHT_BLUE if i == self.difficulty else pyxel.COLOR_WHITE
-            pyxel.text(50, 50 + i * 10, difficulty, color)
+        for i, Fdifficulty in enumerate(difficulties):
+            color = pyxel.COLOR_LIGHT_BLUE if i == Fdifficulty else pyxel.COLOR_WHITE
+            pyxel.text(50, 50 + i * 10, Fdifficulty, color)
 
 
 
 pyxel.init(150, 100, title='Maze', fps=8)
+global difficulty
 Start()
