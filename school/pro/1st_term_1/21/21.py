@@ -32,6 +32,23 @@ class MazeGenerator:
                 x, y = np.random.randint(1, self.width - 1), np.random.randint(1, self.height - 1)
 
 
+class GoalScreen:
+    def __init__(self):
+        pyxel.load("main.pyxres")
+        pyxel.run(self.update, self.draw)
+
+    def update(self):
+        if pyxel.btnp(pyxel.KEY_SPACE):
+            Start()
+
+    def draw(self):
+        pyxel.cls(0)
+        pyxel.blt(10, 10, 0, 0, 0, 150, 16)
+        pyxel.text(25, 40, "Congratulations!", pyxel.frame_count % 16)
+        pyxel.text(25, 50, "You have reached the goal!", 7)
+        pyxel.text(25, 80, "Press SPACE to restart", 7)
+
+
 class App:
     def __init__(self, difficulty):
         self.difficulty = difficulty + 1
@@ -78,6 +95,9 @@ class App:
             self.player_x = next_x
             self.player_y = next_y
 
+        if self.player_x == self.goal_x and self.player_y == self.goal_y:
+            GoalScreen()
+
     def draw(self):
         pyxel.cls(0)
         pixel_size = self.pixel_size
@@ -91,7 +111,6 @@ class App:
 
 class Start:
     def __init__(self):
-        pyxel.init(150, 100, title='Maze', fps=8)
         pyxel.load("main.pyxres")
         self.difficulty = 0
         pyxel.run(self.update_difficulty, self.draw_difficulty)
@@ -107,11 +126,13 @@ class Start:
     def draw_difficulty(self):
         pyxel.cls(0)
         pyxel.blt(10, 15, 0, 0, 0, 150, 16)
-        pyxel.text(50, 40, "Select Difficulty:", 7)
+        pyxel.text(35, 40, "Select Difficulty:", 7)
         difficulties = ["Easy", "Normal", "Hard"]
         for i, difficulty in enumerate(difficulties):
             color = pyxel.COLOR_LIGHT_BLUE if i == self.difficulty else pyxel.COLOR_WHITE
             pyxel.text(50, 50 + i * 10, difficulty, color)
 
 
+
+pyxel.init(150, 100, title='Maze', fps=8)
 Start()
