@@ -48,9 +48,14 @@
     radius: 2pt,
   )
   show raw.where(block: true): block.with(
+    width: 100%,
     fill: luma(240),
+    stroke: 0.7pt + rgb("#dddddd"),
     inset: 10pt,
     radius: 4pt,
+  )
+  show raw: set text(
+    font: "M PLUS 1 Code",
   )
 
   set table(
