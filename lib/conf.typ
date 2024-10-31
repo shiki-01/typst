@@ -31,7 +31,7 @@
       [#it\ ]
     )
     #if it.level < 2 {line(length: 100%,stroke: rgb("#eee"))}
-    #pad(bottom: -20pt, [])
+    #pad(bottom: 0pt, [])
     #if it.level >= 2 {
       [#pad(bottom: 10pt,[])]
     }
